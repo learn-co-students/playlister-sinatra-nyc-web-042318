@@ -18,7 +18,7 @@
       <%=artist.name%><input id="<%=artist.name%>" type="checkbox" name="song[artist_id]" value= <%=artist.id%>><br></br>
     <%end %>
 
-    <label>Add Existing Genre:</label>
+    <h2><label>Add Existing Genre:</label></h2>
       <br></br>
       <%@genres.each do |genre| %>
         <%=genre.name%><input id="<%=genre.name%>" type="checkbox" name="song[genre_ids][]" value= <%=genre.id%>><br></br>
@@ -33,7 +33,6 @@
     <br></br>
     <label>Create New Artist:</label>
     <input type="text" id="Artist Name" name="artist[name]">
-
 
     <input type ="submit" value="Create">
     </form>
