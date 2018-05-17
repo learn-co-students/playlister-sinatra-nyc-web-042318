@@ -1,16 +1,27 @@
 <h1>Create a New Song</h1>
 
 <form action="/songs" method="post">
-  <label for="song_name">Song Name:</label>
-  <input id="song_name" type="text" name="song[name]">
+  <label for="Name">Song Name:</label>
+  <input id="Name" type="text" name="song[name]">
 
   <h3>Select an exisiting artist</h3>
 
+  <% @artists.sort_by{|artist| artist.name.downcase}.each do |artist| %>
+  <table>
+    <tr>
+  <input id="<%= artist.name %>" type="radio" name="song[artist_id]" value="<%= artist.id %>"></input>
+  <label for="<%= artist.name %>"><%= artist.name %></label>
+
+  </tr>
+</table>
+
+  <% end %>
+
 
   <h3>Create a new artist</h3>
-  <label for="artist_name">Artist Name:</label>
-  <input id="artist_name" type="text" name="song[artist]">
+  <label for="Artist Name">Artist Name:</label>
+  <input id="Artist Name" type="text" name="artist[name]">
 
-  <input id="submit" type="submit" name="Submit">
+  <input id="Create" type="submit" name="Create">
 
 </form>
