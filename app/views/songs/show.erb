@@ -1,5 +1,9 @@
 <h1>Show the Song</h1>
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
 <br>
 <%= @song.id %> |
 <%= @song.name %> |
