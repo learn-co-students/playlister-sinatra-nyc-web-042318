@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/songs" method="post">
+    <label>Create New Song:</label>
+    <br></br>
+    <input id="Name" type="text" name="song["name"]">
+    <br></br>
+
+    <label>Add Existing Artist:</label>
+    <br></br>
+    <%@artists.each do |artist| %>
+      <%=artist.name%><input id="Artist Name" type="text" name="song["artist_id"]" value= <%=artist.id%>><br></br>
+    <%end %>
+      <!-- <select name="song["artist_id"]">
+        <%@artists.each do |artist| %>
+        <option value="<%=artist.id%>"><%=artist.name%></option>
+        <%end %>
+      </select> -->
+
+    <br></br>
+    <label>Create New Artist:</label>
+    <input type="text" name="artist["name"]">
+
+
+    <input type ="submit" value="Create New Song">
+    </form>
+
+
+  </body>
+</html>
