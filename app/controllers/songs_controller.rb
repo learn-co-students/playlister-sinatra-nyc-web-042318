@@ -18,6 +18,7 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
+    binding.pry
     @song = Song.find_or_create_by(params[:song])
     if !params["artist"]["name"].empty?
       if Artist.all.find_by(name: params["artist"]["name"])
