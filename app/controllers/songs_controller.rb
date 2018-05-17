@@ -18,7 +18,6 @@ class SongsController < ApplicationController
   end
 
   post '/songs' do
-
     redirect "/songs/#{@song.slug}"
   end
 

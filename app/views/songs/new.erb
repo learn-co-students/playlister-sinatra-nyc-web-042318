@@ -5,17 +5,25 @@
     <title></title>
   </head>
   <body>
+
     <form action="/songs" method="post">
     <label>Create New Song:</label>
     <br></br>
-    <input id="Name" type="text" name="song["name"]">
+    <input id="Name" type="text" name="song[name]">
     <br></br>
 
     <label>Add Existing Artist:</label>
     <br></br>
     <%@artists.each do |artist| %>
-      <%=artist.name%><input id="Artist Name" type="text" name="song["artist_id"]" value= <%=artist.id%>><br></br>
+      <%=artist.name%><input id="<%=artist.name%>" type="checkbox" name="song[artist_id]" value= <%=artist.id%>><br></br>
     <%end %>
+
+    <label>Add Existing Genre:</label>
+      <br></br>
+      <%@genres.each do |genre| %>
+        <%=genre.name%><input id="<%=genre.name%>" type="checkbox" name="song[genre_ids][]" value= <%=genre.id%>><br></br>
+      <%end %>
+
       <!-- <select name="song["artist_id"]">
         <%@artists.each do |artist| %>
         <option value="<%=artist.id%>"><%=artist.name%></option>
@@ -24,10 +32,10 @@
 
     <br></br>
     <label>Create New Artist:</label>
-    <input type="text" name="artist["name"]">
+    <input type="text" id="Artist Name" name="artist[name]">
 
 
-    <input type ="submit" value="Create New Song">
+    <input type ="submit" value="Create">
     </form>
 
 
