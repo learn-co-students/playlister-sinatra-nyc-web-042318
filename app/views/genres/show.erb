@@ -8,10 +8,14 @@
 <ul>
   <% @genre.songs.each do |song| %>
   <li>
+
     <label>Song:</label>
     <a href="/songs/<%= song.slug %>">
        <%= song.name %>
     </a>
+    &emsp;
+    
+    <a href="/songs/<%= song.slug %>/edit">Edit</a>
   </li>
   <ul>
     <li>

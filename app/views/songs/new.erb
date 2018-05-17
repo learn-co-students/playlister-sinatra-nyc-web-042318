@@ -6,39 +6,43 @@
 
   <h3>Select an exisiting genre</h3>
 
+  <div class="">
+
+
+
   <% @genres.sort_by{|genre| genre.name.downcase}.each do |genre| %>
-  <table>
-    <tr>
+
 
     <input id="<%= genre.name %>" type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>"></input>
     <label for="<%= genre.name %>"><%= genre.name %></label>
 
-    </tr>
-  </table>
+
 
   <% end %>
 
+  </div>
 
   <h3>Create a new genre</h3>
+
+
 
   <label for="Genre Name">Genre Name:</label>
   <input id="Genre Name" type="text" name="genre[name]">
 
 
   <h3>Select an exisiting artist</h3>
+  <div class="newspaper">
 
   <% @artists.sort_by{|artist| artist.name.downcase}.each do |artist| %>
-  <table>
-    <tr>
+<div>
 
     <input id="<%= artist.name %>" type="radio" name="song[artist_id]" value="<%= artist.id %>"></input>
     <label for="<%= artist.name %>"><%= artist.name %></label>
 
-    </tr>
-  </table>
+</div>
 
   <% end %>
-
+</div>
 
   <h3>Create a new artist</h3>
   <label for="Artist Name">Artist Name:</label>

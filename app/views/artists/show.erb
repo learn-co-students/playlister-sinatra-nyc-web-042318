@@ -9,9 +9,12 @@
 <ul>
   <li>
     <a href="/songs/<%= song.slug %>">
-    <%= song.id %> | 
-    <%= song.name %>
+    <%= song.id %> |
+    <%= song.name %> |
     </a>
+    <a href="/songs/<%= song.slug %>/edit">Edit</a>
+
+
   </li>
   <ul>
     <li><% song.genres.each do |genre| %>
