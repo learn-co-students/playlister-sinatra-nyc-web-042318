@@ -1,0 +1,62 @@
+<h1>Editting <%= @song.name %></h1>
+
+<form action="/songs/<%= @song.slug %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="Name">Song Name:</label>
+  <input id="Name" type="text" name="song[name]" value="<%= @song.name %>">
+
+  <div>
+  <h3>Select an exisiting genre</h3>
+
+  <% @genres.sort_by{|genre| genre.name.downcase}.each do |genre| %>
+
+
+    <input id="<%= genre.name %>" type="checkbox" name="song[genre_ids][]" value="<%= genre.id %>"
+
+<%     if @song.genre_ids.include?(genre.id) %>
+    checked
+    <% end %>
+
+
+    ></input>
+    <label for="<%= genre.name %>"><%= genre.name %></label>
+
+
+
+  <% end %>
+</div>
+
+  <h3>Create a new genre</h3>
+
+  <label for="Genre Name">Genre Name:</label>
+  <input id="Genre Name" type="text" name="genre[name]">
+
+
+  <h3>Select an exisiting artist</h3>
+  <div class="newspaper">
+
+  <% @artists.sort_by{|artist| artist.name.downcase}.each do |artist| %>
+  <div class="">
+
+
+    <input id="<%= artist.name %>" type="radio" name="song[artist_id]" value="<%= artist.id %>"
+    <%     if @song.artist_id==artist.id %>
+        checked
+        <% end %>
+
+
+    ></input>
+    <label for="<%= artist.name %>"><%= artist.name %></label>
+
+</div>
+
+  <% end %>
+
+</div>
+  <h3>Create a new artist</h3>
+  <label for="Artist Name">Artist Name:</label>
+  <input id="Artist Name" type="text" name="artist[name]">
+
+  <input id="Save" type="submit" name="Save">
+
+</form>

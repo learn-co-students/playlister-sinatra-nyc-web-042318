@@ -2,7 +2,15 @@
 <html>
   <head>
     <title></title>
-  </head>
+
+    <style>
+      .newspaper {
+          -webkit-column-count: 3; /* Chrome, Safari, Opera */
+          -moz-column-count: 3; /* Firefox */
+          column-count: 3;
+      }
+    </style>
+    </head>
 
   <body>
     <%= yield %>
